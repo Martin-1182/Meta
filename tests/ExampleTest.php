@@ -1,5 +1,8 @@
 <?php
 
+use function Pest\Laravel\artisan;
+
 it('can test', function () {
-    expect(true)->toBeTrue();
+    artisan(\Alfred\Meta\Commands\MetaCommand::class)
+        ->assertExitCode(\Illuminate\Console\Command::SUCCESS);
 });
