@@ -5,8 +5,7 @@ namespace Alfred\Meta;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-
-Class MetaServiceProvider extends PackageServiceProvider
+class MetaServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

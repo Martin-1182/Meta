@@ -1,10 +1,8 @@
 <?php
+
 namespace Alfred\Meta\Commands;
 
 use Illuminate\Console\Command;
-
-
-
 
 class MetaCommand extends Command
 {
