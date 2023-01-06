@@ -25,6 +25,11 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
           coverage: none
 
+      - name: Create database
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS db;"
+
       - name: Setup problem matchers
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
@@ -35,3 +40,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/pest
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_PASSWORD: db
